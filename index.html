@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dayn Johnson — Customer Success Operations · Gainsight · AI Enablement</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --rosso:#E10600;
+    --rosso-deep:#B0050A;
+    --blue:#0033A0;
+    --blue-deep:#00277A;
+    --ink:#14161A;
+    --mute:#5B6066;
+    --line:#E4E6EA;
+    --paper:#FFFFFF;
+    --backdrop:#EEF0F3;
+    --rail-soft:rgba(255,255,255,.72);
+    --rail-line:rgba(255,255,255,.18);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+
+  html{-webkit-text-size-adjust:100%;}
+
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--backdrop);
+    line-height:1.5;
+    padding:32px 18px;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .page{
+    width:100%;
+    max-width:1080px;
+    margin:0 auto;
+    background:var(--paper);
+    box-shadow:0 24px 60px -28px rgba(20,22,26,.45);
+    overflow:hidden;
+  }
+
+  /* ---------- HEADER ---------- */
+  .header{
+    position:relative;
+    padding:46px 52px 30px 52px;
+  }
+  .header::before{
+    content:"";
+    position:absolute;
+    left:0;top:46px;bottom:30px;
+    width:7px;
+    background:var(--rosso);
+  }
+  .name{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:54px;
+    letter-spacing:-1.5px;
+    line-height:.98;
+    color:var(--ink);
+  }
+  .name .dot{color:var(--rosso);}
+  .role-line{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12.5px;
+    font-weight:500;
+    letter-spacing:.02em;
+    color:var(--blue);
+    margin-top:14px;
+    text-transform:uppercase;
+  }
+  .thesis{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:500;
+    font-size:20px;
+    line-height:1.4;
+    letter-spacing:-.3px;
+    color:var(--ink);
+    margin-top:22px;
+    max-width:760px;
+  }
+  .thesis .em{
+    color:var(--rosso-deep);
+    font-weight:600;
+  }
+  .contact{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px 22px;
+    margin-top:24px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    color:var(--mute);
+  }
+  .contact a{color:var(--mute);text-decoration:none;border-bottom:1px solid transparent;transition:.15s;}
+  .contact a:hover{color:var(--rosso-deep);border-bottom-color:var(--rosso-deep);}
+  .contact .port{color:var(--rosso-deep);font-weight:500;}
+
+  /* ---------- METRIC LEDGER ---------- */
+  .ledger{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    border-top:1px solid var(--ink);
+    border-bottom:1px solid var(--line);
+    margin:8px 52px 0 52px;
+  }
+  .stat{
+    padding:18px 18px 16px 0;
+    position:relative;
+  }
+  .stat + .stat{padding-left:26px;}
+  .stat + .stat::before{
+    content:"";
+    position:absolute;left:0;top:18px;bottom:16px;
+    width:1px;background:var(--line);
+  }
+  .stat .num{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:40px;
+    line-height:1;
+    letter-spacing:-1.5px;
+    color:var(--rosso);
+  }
+  .stat .lab{
+    font-family:'JetBrains Mono',monospace;
+    font-size:10px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:var(--mute);
+    margin-top:8px;
+    line-height:1.35;
+  }
+
+  /* ---------- LAYOUT ---------- */
+  .layout{
+    display:block;
+    padding:0;
+  }
+
+  /* eyebrow + heading device */
+  .eyebrow{
+    display:flex;align-items:center;gap:9px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:10.5px;letter-spacing:.12em;
+    text-transform:uppercase;
+    margin-bottom:14px;
+  }
+  .eyebrow::before{
+    content:"";width:9px;height:9px;background:var(--rosso);flex:none;
+  }
+
+  /* ---------- MAIN COLUMN ---------- */
+  .main{padding:34px 52px 44px 52px;}
+  .main .eyebrow{color:var(--rosso-deep);}
+  .summary{
+    font-size:15px;line-height:1.62;color:#2b2e33;max-width:640px;
+  }
+  .block-gap{height:34px;}
+
+  .job{margin-bottom:26px;page-break-inside:avoid;break-inside:avoid;}
+  .job-head{
+    display:flex;justify-content:space-between;align-items:baseline;
+    gap:14px;flex-wrap:wrap;
+  }
+  .job-title{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:600;font-size:17px;color:var(--ink);letter-spacing:-.2px;
+  }
+  .job-org{color:var(--rosso-deep);font-weight:600;}
+  .job-date{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;color:var(--mute);white-space:nowrap;
+  }
+  .job-sub{
+    font-family:'JetBrains Mono',monospace;
+    font-size:10.5px;color:var(--mute);margin-top:3px;
+  }
+  .bullets{list-style:none;margin-top:11px;}
+  .bullets li{
+    position:relative;padding-left:18px;margin-bottom:8px;
+    font-size:13.6px;line-height:1.55;color:#2b2e33;
+  }
+  .bullets li::before{
+    content:"";position:absolute;left:0;top:8px;
+    width:6px;height:6px;background:var(--blue);
+    transform:rotate(45deg);
+  }
+  .bullets li b{color:var(--ink);font-weight:600;}
+
+  .earlier{margin-top:6px;}
+  .erow{
+    display:grid;grid-template-columns:1fr auto;gap:6px 14px;
+    padding:11px 0;border-top:1px solid var(--line);
+    page-break-inside:avoid;break-inside:avoid;
+  }
+  .erow:last-child{border-bottom:1px solid var(--line);}
+  .erow .etitle{
+    font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:13.5px;color:var(--ink);
+  }
+  .erow .eorg{color:var(--rosso-deep);font-weight:600;}
+  .erow .edate{
+    font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--mute);
+    text-align:right;white-space:nowrap;align-self:center;
+  }
+  .erow .edesc{
+    grid-column:1 / -1;font-size:12.6px;line-height:1.5;color:var(--mute);margin-top:1px;
+  }
+
+  /* ---------- RAIL ---------- */
+  .rail{
+    background:var(--blue);
+    color:#fff;
+    padding:38px 34px 42px 34px;
+  }
+  .rail .eyebrow{color:#fff;}
+  .rail .eyebrow::before{background:var(--rosso);}
+  .rail-block + .rail-block{margin-top:30px;page-break-inside:avoid;break-inside:avoid;}
+
+  .skill-group{margin-bottom:15px;}
+  .skill-key{
+    font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:13.5px;color:#fff;
+    margin-bottom:5px;
+  }
+  .skill-val{font-size:12.4px;line-height:1.5;color:var(--rail-soft);}
+  .skill-divider{
+    height:1px;background:var(--rail-line);margin:18px 0 16px;
+  }
+  .fluent-label{
+    font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;
+    text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:12px;
+  }
+
+  .rec{padding:11px 0;border-top:1px solid var(--rail-line);page-break-inside:avoid;break-inside:avoid;}
+  .rec:first-of-type{border-top:none;padding-top:0;}
+  .rec.lead .rec-title{color:#fff;}
+  .rec.lead{
+    background:rgba(225,6,0,.16);
+    margin:0 -14px 6px;padding:13px 14px;
+    border-top:none;border-left:3px solid var(--rosso);
+  }
+  .rec-title{
+    font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:13.5px;color:#fff;line-height:1.3;
+  }
+  .rec.lead .rec-title{font-size:14px;}
+  .rec-desc{font-size:11.8px;line-height:1.45;color:var(--rail-soft);margin-top:3px;}
+
+  .edu .skill-key{margin-bottom:2px;}
+  .edu .skill-val{margin-bottom:13px;}
+
+  .port-cta{
+    display:block;margin-top:28px;
+    background:#fff;color:var(--blue);
+    text-decoration:none;
+    font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14px;
+    padding:14px 18px;
+    text-align:center;
+    letter-spacing:-.2px;
+    transition:.15s;
+  }
+  .port-cta span{color:var(--rosso);}
+  .port-cta:hover{background:var(--rosso);color:#fff;}
+  .port-cta:hover span{color:#fff;}
+
+  /* ---------- DESKTOP TWO-COLUMN ---------- */
+  @media(min-width:860px){
+    .layout{
+      display:grid;
+      grid-template-columns:330px 1fr;
+      align-items:stretch;
+    }
+    .main{grid-column:2;grid-row:1;}
+    .rail{grid-column:1;grid-row:1;}
+  }
+
+  /* ---------- MOTION ---------- */
+  @media(prefers-reduced-motion:no-preference){
+    .reveal{opacity:0;transform:translateY(10px);animation:rise .6s ease forwards;}
+    .header{animation-delay:.02s;}
+    .ledger{animation-delay:.12s;}
+    .layout{animation-delay:.2s;}
+    @keyframes rise{to{opacity:1;transform:translateY(0);}}
+  }
+
+  /* ---------- MOBILE ---------- */
+  @media(max-width:680px){
+    body{padding:18px 12px;}
+    .header{padding:32px 22px 24px;}
+    .header::before{top:32px;bottom:24px;width:6px;}
+    .name{font-size:40px;letter-spacing:-1px;}
+    .thesis{font-size:18px;margin-top:18px;}
+    .contact{gap:7px 18px;}
+
+    .ledger{
+      grid-template-columns:repeat(2,1fr);
+      margin:8px 22px 0;
+    }
+    .stat{padding-top:15px;padding-bottom:13px;}
+    .stat + .stat::before{display:none;}
+    .stat:nth-child(odd){padding-left:0;padding-right:20px;}
+    .stat:nth-child(even){padding-left:20px;padding-right:0;border-left:1px solid var(--line);}
+    .stat:nth-child(n+3){border-top:1px solid var(--line);}
+    .stat .num{font-size:33px;letter-spacing:-1px;}
+
+    .main{padding:30px 22px 38px;}
+    .rail{padding:34px 24px 38px;}
+  }
+
+  /* ---------- PRINT ---------- */
+  @media print{
+    @page{size:letter;margin:.45in;}
+    body{background:#fff;padding:0;}
+    .page{box-shadow:none;max-width:100%;}
+    .reveal{opacity:1!important;transform:none!important;animation:none!important;}
+    .header,.ledger,.main{padding-left:0;padding-right:0;}
+    .header::before{left:-14px;}
+    .ledger{margin-left:0;margin-right:0;}
+    .header{padding-top:6px;}
+    .rail{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    .stat .num,.name .dot,.eyebrow::before,.bullets li::before{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    .port-cta{display:none;}
+    a{color:inherit;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="header reveal">
+    <h1 class="name">Dayn Johnson<span class="dot">.</span></h1>
+    <div class="role-line">Customer Success Operations · Gainsight Architecture · AI Enablement &amp; Digital CS</div>
+    <p class="thesis">A <span class="em">reformed email marketer</span> — audience logic and behavioral psychology are the foundation, not a footnote.</p>
+    <div class="contact">
+      <span>Charlotte, NC</span>
+      <a href="tel:+18595366889">(859) 536-6889</a>
+      <a href="mailto:daynwj@gmail.com">daynwj@gmail.com</a>
+      <a href="https://linkedin.com/in/daynjohnson" target="_blank" rel="noopener">linkedin.com/in/daynjohnson</a>
+      <a class="port" href="https://daynjohnson.notion.site/Digital-Portfolio-c0e756d131b04861b7f5881fa757b2c2" target="_blank" rel="noopener">Digital Portfolio ↗</a>
+    </div>
+  </header>
+
+  <!-- METRIC LEDGER -->
+  <section class="ledger reveal" aria-label="Key results">
+    <div class="stat"><div class="num">75%+</div><div class="lab">CSM account-review<br>prep reduction</div></div>
+    <div class="stat"><div class="num">47%</div><div class="lab">New-user activation<br>CTOR · vs ~20% industry</div></div>
+    <div class="stat"><div class="num">300%</div><div class="lab">Webinar registration<br>lift via re-architecture</div></div>
+    <div class="stat"><div class="num">50+</div><div class="lab">CSM organization<br>supported</div></div>
+  </section>
+
+  <!-- LAYOUT -->
+  <div class="layout reveal">
+
+    <!-- MAIN -->
+    <main class="main">
+      <div class="eyebrow">Profile</div>
+      <p class="summary">Digital CS and Gainsight practitioner who came up through email operations and change management — and now owns the AI and automation layer a 50+ CSM organization runs on. I take ownership of ambiguous problems, learn tools by building with them, and turn one-off AI experiments into governed systems a team can rely on — including using AI to design and prompt AI.</p>
+
+      <div class="block-gap"></div>
+
+      <div class="eyebrow">Experience</div>
+
+      <div class="job">
+        <div class="job-head">
+          <div class="job-title">Staff CS Communications &amp; Content Manager <span class="job-org">· Henry Schein One</span></div>
+          <div class="job-date">JAN 2026 — PRESENT</div>
+        </div>
+        <ul class="bullets">
+          <li>Own the CS intelligence and AI-enablement function for a <b>50+ CSM organization</b> — designing the Gainsight architecture, AI systems, and knowledge layer the team runs on, and partnering across BI, Salesforce, and the Gainsight Customer Communities rollout — a scope grown well past the role's communications-and-content title.</li>
+          <li>Built a multi-tool AI enablement layer on an <b>"architect / consumer" model</b>: a small Ops team builds and governs the AI artifacts (Claude Projects &amp; reusable skills, Microsoft Copilot) while CSMs consume polished outputs in the tools they already use.</li>
+          <li>Designed structured AI instruction sets powering an automated account-review workflow — cutting CSM prep from ~an hour to 5–10 minutes (<b>75%+ reduction</b>) via a design-time vs. runtime approach that keeps output consistent at scale.</li>
+          <li>Designed a Gainsight Copilot prompt library on a <b>trigger → gate → execute</b> pattern, delivering AI-generated insight to CSMs natively inside Gainsight — no new tools, no separate logins.</li>
+          <li>Build and maintain the team's knowledge layer — wikis, SOPs, dashboards, and a Copilot prompt catalog — so 50+ CSMs and Ops teammates self-serve answers.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <div class="job-title">Senior Email Operations Specialist <span class="job-org">· Recorded Future</span></div>
+          <div class="job-date">JAN 2022 — JAN 2026</div>
+        </div>
+        <div class="job-sub">Promoted from Email Campaign Specialist · Nov 2024</div>
+        <ul class="bullets">
+          <li>Migrated legacy batch-and-blast email into dynamic, behavior-triggered <b>Journey Orchestrator</b> programs on real-time data — lifting new-user activation to a <b>47% click-to-open rate</b> (vs. ~20% industry) and regional segmentation to <b>67% CTOR</b>, roughly 3x the global baseline.</li>
+          <li>Re-architected webinar registration flows, driving a <b>300% increase</b> in registration rates.</li>
+          <li>Built vendor-neutral, modular asset architecture — reusable templates, S3 storage, decoupled data pipelines — so the org could change tools without rebuilding campaigns.</li>
+          <li>Created custom Gemini agentic workflows ("Gems") for orchestration and brand-aligned copywriting — an early, self-directed move into AI-assisted CS operations.</li>
+        </ul>
+      </div>
+
+      <div class="block-gap" style="height:18px"></div>
+      <div class="eyebrow">Earlier Experience</div>
+      <div class="earlier">
+        <div class="erow">
+          <div class="etitle">Email Marketing Specialist <span class="eorg">· Rugs.com</span></div>
+          <div class="edate">2021</div>
+          <div class="edesc">14+ campaigns/week across audiences up to 1.9M; IP-warming during CRM migrations.</div>
+        </div>
+        <div class="erow">
+          <div class="etitle">Change Communications Specialist <span class="eorg">· Wells Fargo</span></div>
+          <div class="edate">2019 — 2020</div>
+          <div class="edesc">Enterprise change communications across large-scale business initiatives.</div>
+        </div>
+        <div class="erow">
+          <div class="etitle">Email Marketing Specialist <span class="eorg">· Quest Oracle Community</span></div>
+          <div class="edate">2017 — 2019</div>
+          <div class="edesc">20–30 technical / CPE email programs monthly for a 65K+ member community.</div>
+        </div>
+        <div class="erow">
+          <div class="etitle">Communications &amp; IT / Media <span class="eorg">· Silver Springs Stud / Margaux Farm</span></div>
+          <div class="edate">2009 — 2017</div>
+          <div class="edesc">Marketing, comms, and early digital/IT for Kentucky Thoroughbred businesses — the origin of a learn-by-doing technical path and the audience-first B2H instinct.</div>
+        </div>
+      </div>
+    </main>
+
+    <!-- RAIL -->
+    <aside class="rail">
+      <div class="rail-block">
+        <div class="eyebrow">Expertise</div>
+        <div class="skill-group">
+          <div class="skill-key">Gainsight</div>
+          <div class="skill-val">Journey Orchestrator · Data Designer (templates, merges, transforms, unions) · Gainsight Copilot (AI) · CTAs &amp; Playbooks · Surveys · Reports &amp; Dashboards</div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-key">AI Enablement</div>
+          <div class="skill-val">Claude (Projects, Skills) · Microsoft Copilot · Gemini · NotebookLM · Granola · prompt &amp; agent design · prompt efficiency · design-time vs. runtime · AI-to-AI prompting</div>
+        </div>
+
+        <div class="skill-divider"></div>
+        <div class="fluent-label">Also fluent in</div>
+        <div class="skill-group">
+          <div class="skill-key">Digital CS</div>
+          <div class="skill-val">Digital-led journeys · B2H communication design · lifecycle &amp; audience segmentation · change management · CSM enablement</div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-key">Knowledge &amp; Governance</div>
+          <div class="skill-val">Wikis · forms · SOPs · dashboards · infographics · documentation &amp; naming conventions · software evaluation via legal &amp; security review · 'measure twice, build once' planning</div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-key">Platforms &amp; Tools</div>
+          <div class="skill-val">Notion · Microsoft 365 · Google Workspace · Slack · Jira · Confluence · Smartsheet · Airtable · Adobe (PS / AI) · HTML (email-focused)</div>
+        </div>
+      </div>
+
+      <div class="rail-block">
+        <div class="eyebrow">Recognition</div>
+        <div class="rec lead">
+          <div class="rec-title">Two-time Platinum Gainstar</div>
+          <div class="rec-desc">On-stage recognition at Gainsight Pulse — Gainsight's customer recognition program for its most active community contributors and advocates.</div>
+        </div>
+        <div class="rec">
+          <div class="rec-title">Pulse Academy Live Presenter</div>
+          <div class="rec-desc">2025, Las Vegas — combining Data Designer templates with Dynamic JO audience filters: standardization plus precision targeting at scale.</div>
+        </div>
+        <div class="rec">
+          <div class="rec-title">CS Ops Product Council</div>
+          <div class="rec-desc">Selected two consecutive years (2025 &amp; 2026) to advise Gainsight on product development.</div>
+        </div>
+        <div class="rec">
+          <div class="rec-title">Gamechanger Community VIP</div>
+          <div class="rec-desc">Second-highest contributor; author of a published Journey Orchestrator best-practices series (5 articles, more in progress).</div>
+        </div>
+        <div class="rec">
+          <div class="rec-title">AI in Post-Sale Council</div>
+          <div class="rec-desc">Rod Cherkas — contributor to the AI Playbook Vault.</div>
+        </div>
+        <div class="rec">
+          <div class="rec-title">Global Gainsight Admin (GGA) Slack</div>
+          <div class="rec-desc">Active practitioner contributor.</div>
+        </div>
+      </div>
+
+      <div class="rail-block edu">
+        <div class="eyebrow">Education &amp; Certs</div>
+        <div class="skill-key">B.A., Psychology</div>
+        <div class="skill-val">Transylvania University — Lexington, KY</div>
+        <div class="skill-key">Gainsight NXT Certifications</div>
+        <div class="skill-val">Level 2</div>
+      </div>
+
+      <a class="port-cta" href="https://daynjohnson.notion.site/Digital-Portfolio-c0e756d131b04861b7f5881fa757b2c2" target="_blank" rel="noopener">See the full portfolio <span>↗</span></a>
+    </aside>
+
+  </div>
+</div>
+</body>
+</html>
