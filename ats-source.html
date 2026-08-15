@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dayn Johnson — Resume</title>
+<style>
+  @page{size:letter;margin:.42in;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:Calibri,Carlito,"Liberation Sans",Arial,Helvetica,sans-serif;
+    font-size:9.4pt;
+    line-height:1.26;
+    color:#14161A;
+    /* ligatures render "fi"/"fl" as single glyphs, which breaks ATS
+       keyword matching on words like "certifications" and "Confluence" */
+    font-variant-ligatures:none;
+    -webkit-font-feature-settings:"liga" 0,"clig" 0,"dlig" 0;
+    font-feature-settings:"liga" 0,"clig" 0,"dlig" 0;
+  }
+  h1{font-size:19pt;font-weight:700;letter-spacing:-.3px;line-height:1.1;}
+  h1 span{color:#E10600;}
+  .roleline{font-size:9.7pt;font-weight:600;color:#E10600;margin-top:3px;}
+  .contact{font-size:9.2pt;margin-top:4px;}
+  h2{
+    font-size:10.3pt;font-weight:700;color:#0033A0;
+    margin-top:8px;margin-bottom:3px;
+    border-bottom:1.6px solid #E10600;padding-bottom:2px;
+    text-transform:none;
+  }
+  p{margin-bottom:4px;}
+  .skill{margin-bottom:3px;}
+  .jobtitle{font-size:10.2pt;font-weight:700;color:#0033A0;margin-top:7px;page-break-after:avoid;break-after:avoid;}
+  .jobmeta{font-size:9pt;color:#444;margin-bottom:3px;page-break-after:avoid;break-after:avoid;}
+  ul{list-style:none;margin:0 0 2px 0;}
+  li{
+    position:relative;padding-left:12px;margin-bottom:2.5px;
+    page-break-inside:avoid;break-inside:avoid;
+  }
+  li::before{content:"\25AA";position:absolute;left:0;color:#E10600;}
+  .role-block{page-break-inside:auto;break-inside:auto;}
+</style>
+</head>
+<body>
+
+<h1>Dayn Johnson<span>.</span></h1>
+<div class="roleline">Customer Success Operations · Digital and Scaled Lifecycle Programs · AI Enablement</div>
+<div class="contact">
+  Charlotte, NC · +1 (859) 536-6889 · daynwj@gmail.com<br>
+  linkedin.com/in/daynjohnson · daynwj.github.io/resume
+</div>
+
+<h2>Professional Summary</h2>
+<p>Customer success operations practitioner specializing in digital-led and scaled CS programs, lifecycle automation, CSM-facing reporting, and the AI and knowledge systems a 50+ CSM organization runs on. Four and a half years in Gainsight, four of them on the client enablement team at Recorded Future, a threat intelligence company. Four email platforms before that, each learned on the job. Gainsight NXT Level 2 certified, two consecutive terms on the Gainsight CS Ops Product Council, two-time Platinum Gainstar. Psychology degree underneath all of it. Audience segmentation and behavioral design are the foundation, not a footnote.</p>
+
+<h2>Core Skills</h2>
+<div class="skill"><b>Digital and Scaled Customer Success:</b> Digital-led and scaled CX journeys, lifecycle campaign design and audience segmentation, tech-touch and pooled coverage models, B2H ("business-to-human") communication design, message and cadence testing, CSM enablement, change management</div>
+<div class="skill"><b>Gainsight:</b> NXT Level 2 certified. Gainsight CS: Journey Orchestrator (Dynamic and Advanced JOs, audience filters), Data Designer, Health Scores, CTAs and Playbooks, Gainsight Copilot, Surveys, Reports and Dashboards. Gainsight CC (Customer Communities): community integrated with CS lifecycle programs.</div>
+<div class="skill"><b>AI Enablement:</b> Design-time versus runtime architecture (build the logic once, let a deterministic system execute it); human review as a design constraint, not a courtesy; ops-mediated tool access and permissioning models; grounding generation in an approved source of truth; model selection and cross-model chaining by task and cost; context, prompt, and skill architecture; maintainability as a build requirement</div>
+<div class="skill"><b>AI Tooling:</b> Claude (Projects, Skills, scheduled tasks, MCP connectors), Microsoft Copilot and SharePoint Copilot, Copilot Studio, Gemini (custom Gems, Deep Research), Gemini Notebook (formerly NotebookLM), Granola, Perplexity</div>
+<div class="skill"><b>Knowledge and Governance:</b> Knowledge systems (SharePoint, Microsoft Loop, Notion): database and schema design, wikis, forms, dashboards, infographics, SOPs; documentation and naming conventions; software evaluation through legal and security review; project planning</div>
+<div class="skill"><b>Platforms and Tools:</b> Gainsight, Salesforce, Domo, Notion, SharePoint, Google Workspace, Microsoft 365, Slack, Jira, Atlassian Rovo, Confluence, Smartsheet, Airtable, Adobe (Photoshop, Illustrator), HTML. Email platforms: Eloqua, Listrak, Braze, Klaviyo</div>
+
+<h2>Professional Experience</h2>
+
+<div class="role-block">
+<div class="jobtitle">Staff Customer Success Communications and Content Manager</div>
+<div class="jobmeta">Henry Schein One · Remote · January 2026 – Present</div>
+<ul>
+  <li>Own the CS intelligence and AI-enablement function for a 50+ CSM organization: Journey Orchestrator architecture, the AI workflows the team runs on, and the knowledge systems underneath both. Partner with Salesforce administration and BI on the upstream data layer.</li>
+  <li>Built 7 of the 16 Journey Orchestrator programs running in production, mostly lifecycle, and own triage when one stops firing. Onboarding and adoption programs drive registration for new-user office hours.</li>
+  <li>Retired a business-review prep prompt I had shipped to the Gainsight Copilot library. Formatting varied run to run, talking points dropped out, and CSMs were re-prompting to get a complete script. It was making their job harder. Rebuilt it with our BI and data teams as a self-service Domo dashboard, moving the AI work to when the script is designed rather than when it runs. A CSM enters an account and gets the same complete output every time. Prep dropped from an hour-plus to 15–30 minutes.</li>
+  <li>Built the standing coverage model that gives P2 and P3 accounts a self-service path instead of a CSM touchpoint. Several hundred accounts now handle replacement terminal orders and compliance requirements on their own, with a request-a-CSM option in every send. Under 10% ask for one, freeing capacity without new headcount. Shipped as a project, designed to repeat, running as ongoing coverage since.</li>
+  <li>Designed the weekly CS Ops reporting workflow, replacing a manual status email. Microsoft Copilot prompts normalize the team's Jira and Loop entries into a fixed schema (wins, blockers, on-track status, program metrics, roadmap), then render an HTML infographic. Prep dropped from half a day to 15–20 minutes, and it feeds director-level reporting.</li>
+  <li>Pitched Notion as the CS Ops knowledge system and lost. Stood the system up on SharePoint instead, using licenses the org already held: a governed document library holding only approved current files, metadata tagging and filtered views throughout, and a centralized SOP list. A Copilot agent sits on top, so a CSM asking how to run a license transfer gets the SOP, the enablement recording, and the infographic together. No net-new vendor, no additional security review, no per-seat AI spend.</li>
+</ul>
+</div>
+
+<div class="role-block">
+<div class="jobtitle">Senior Email Operations Specialist</div>
+<div class="jobmeta">Recorded Future · Client Enablement · Threat Intelligence / Cybersecurity · Remote · January 2022 – January 2026</div>
+<ul>
+  <li>Promoted from Email Campaign Specialist to Senior Email Operations Specialist in November 2024.</li>
+  <li>Built the lifecycle and engagement programs that customer success, onboarding, training, product, and support ran on, working from inside the client enablement team. Partnered with marketing on shared audiences and channel ownership.</li>
+  <li>Migrated legacy batch-and-blast email into behavior-triggered Journey Orchestrator programs running on real-time data. New-user activation reached a 47% click-to-open rate against a ~20% industry baseline; regional segmentation peaked at 67% CTOR, roughly 3x the global average. Re-architected webinar link and registration flows, tripling registrations.</li>
+  <li>Rolled out Gainsight's Slack AI agent to the CSM team, replacing a notification-only app. Piloted with a group under ten before releasing to the full team. Access inherited each rep's Salesforce permissions, so a CSM saw only their own book and a manager saw what rolled up to them. Clearing legal and security meant working with Gainsight's product team to confirm a wildcard operator that confined the agent to DMs and kept it out of every public and private channel. That detail was added to their public FAQ.</li>
+  <li>Built the 210-day pre-renewal program that convened the CSM, account executive, renewal rep, and executive sponsor well ahead of the renewal date. The point was coordination: give the renewal team a full account picture early enough to act on it.</li>
+  <li>Ran a monthly check-in program on behalf of the CSM team. Scaled sends landed as personal outreach from each CSM, and customers replied directly to their rep. Partnered with CSMs on onboarding and feature-announcement campaigns, tuning content and cadence to what they were hearing from accounts.</li>
+  <li>Ran structured A/B testing on message tone and send cadence: friendly versus formal copy, 3-day versus 7-day send delays, retiring the underperformer after each test window. Results drove the move to the shorter delay and shaped the B2H approach I still build with.</li>
+  <li>Created Gemini agentic workflows ("Gems") for task orchestration, brand-aligned copywriting, and technical link extraction, before AI tooling was part of the team's remit.</li>
+</ul>
+</div>
+
+<div class="role-block">
+<div class="jobtitle">Email Marketing Specialist</div>
+<div class="jobmeta">Rugs.com (Unique USA Inc) · Charlotte, NC / Remote · 2021</div>
+<ul>
+  <li>Produced 14+ campaigns weekly across audiences up to 1.9M, managing variants for a 1.1M+ subscriber list. Migrated the email stack from Listrak to Braze to Klaviyo inside a single year, executing IP warming through each cutover.</li>
+</ul>
+</div>
+
+<div class="role-block">
+<div class="jobtitle">Change Communications Specialist (Business Initiatives Consultant II)</div>
+<div class="jobmeta">Wells Fargo · Charlotte, NC / Remote · 2019 – 2020</div>
+<ul>
+  <li>Drove enterprise change communications across large-scale business initiatives.</li>
+</ul>
+</div>
+
+<div class="role-block">
+<div class="jobtitle">Manager, Marketing</div>
+<div class="jobmeta">Quest Oracle Community · 2017 – 2019</div>
+<ul>
+  <li>As the internal Eloqua expert, built 20–30 technical and continuing-education email programs monthly for a 65K+ member community reaching C-level and end-user audiences. Segmented the contact database and planned campaigns and canvases with third-party Eloqua consultants.</li>
+</ul>
+</div>
+
+<div class="role-block">
+<div class="jobtitle">Communications and IT / Media Manager</div>
+<div class="jobmeta">Silver Springs Stud / Margaux Farm · 2009 – 2017</div>
+<ul>
+  <li>Led marketing, communications, and early digital and media operations for Kentucky Thoroughbred businesses.</li>
+</ul>
+</div>
+
+<h2>Community and Thought Leadership</h2>
+<ul>
+  <li><b>Gainsight CS Ops Product Council (2025 and 2026 terms)</b> — selected two consecutive years to advise Gainsight on product development alongside admins from enterprise SaaS organizations.</li>
+  <li><b>Two-time Platinum Gainstar</b> — second-highest point total community-wide in 2026, and one of six members at Platinum tier (US-based). Recognized on stage at Gainsight Pulse (2026, Las Vegas).</li>
+  <li><b>Gainsight Pulse Academy Live presenter (2025, Las Vegas)</b> — on combining Data Designer templates and broad audiences with Dynamic Journey Orchestrator audience filters for standardization and precision targeting at scale.</li>
+  <li><b>Gainsight Gamechanger Community</b> — VIP contributor; author of a published Journey Orchestrator best-practices article series.</li>
+  <li><b>AI in Post-Sale Council (Rod Cherkas)</b> — contributor to the AI Playbook Vault; pre-reviewer on his book.</li>
+  <li><b>Global Gainsight Admin (GGA) Slack</b> — active practitioner contributor.</li>
+</ul>
+
+<h2>Education and Certifications</h2>
+<ul>
+  <li>Gainsight NXT Certifications (Level 2)</li>
+  <li>Lean Six Sigma White Belt — Henry Schein Center of Business Excellence</li>
+  <li>B.A., Psychology — Transylvania University, Lexington, KY</li>
+</ul>
+
+</body>
+</html>

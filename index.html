@@ -101,6 +101,7 @@
   .contact a{color:var(--mute);text-decoration:none;border-bottom:1px solid transparent;transition:.15s;}
   .contact a:hover{color:var(--rosso-deep);border-bottom-color:var(--rosso-deep);}
   .contact .port{color:var(--rosso-deep);font-weight:500;}
+  .header{border-bottom:1px solid var(--ink);}
 
   /* ---------- METRIC LEDGER ---------- */
   .ledger{
@@ -323,11 +324,48 @@
 
   /* ---------- PRINT ---------- */
   @media print{
-    @page{size:letter;margin:.45in;}
-    body{background:#fff;padding:0;}
+    @page{size:letter;margin:.4in;}
+    body{background:#fff;padding:0;font-size:11px;}
     .page{box-shadow:none;max-width:100%;}
+
+    /* force the desktop two-column layout in print — the 860px
+       breakpoint never fires at letter width and the page stacks */
+    .layout{display:grid;grid-template-columns:250px 1fr;align-items:start;}
+    .main{grid-column:2;grid-row:1;padding:26px 0 0 22px;}
+    .rail{grid-column:1;grid-row:1;padding:26px 16px 20px 14px;}
+
+    .name{font-size:38px;}
+    .thesis{font-size:15px;margin-top:14px;}
+    .role-line{font-size:10.5px;margin-top:10px;}
+    .contact{font-size:10px;margin-top:14px;}
+    .stat .num{font-size:26px;}
+    .stat .lab{font-size:8.5px;}
+    .stat{padding:11px 11px 10px 0;}
+    .summary{font-size:10.4px;line-height:1.48;}
+    .job{margin-bottom:13px;}
+    .job-title{font-size:14px;}
+    .job-date,.job-sub{font-size:9px;}
+    .bullets li{font-size:9.7px;line-height:1.38;margin-bottom:5px;}
+    .block-gap{height:20px;}
+    .erow{padding:7px 0;}
+    .erow .etitle{font-size:11px;}
+    .erow .edesc{font-size:9.6px;}
+    .erow .edate{font-size:9px;}
+    .skill-key{font-size:11px;}
+    .skill-val{font-size:9px;line-height:1.38;}
+    .skill-group{margin-bottom:9px;}
+    .rec{padding:7px 0;}
+    .rec-title{font-size:11px;}
+    .rec-desc{font-size:9.2px;line-height:1.35;}
+    .rail-block + .rail-block{margin-top:20px;}
+    .eyebrow{font-size:9px;margin-bottom:10px;}
+
+    /* let long roles flow across the break instead of jumping whole */
+    .job,.rail-block{page-break-inside:auto;break-inside:auto;}
+    .bullets li,.rec,.erow,.skill-group{page-break-inside:avoid;break-inside:avoid;}
+    .header{padding-top:0;}
     .reveal{opacity:1!important;transform:none!important;animation:none!important;}
-    .header,.ledger,.main{padding-left:0;padding-right:0;}
+    .header,.ledger{padding-left:0;padding-right:0;}
     .header::before{left:-14px;}
     .ledger{margin-left:0;margin-right:0;}
     .header{padding-top:6px;}
@@ -345,7 +383,6 @@
   <header class="header reveal">
     <h1 class="name">Dayn Johnson<span class="dot">.</span></h1>
     <div class="role-line">Customer Success Operations · Digital & Scaled Lifecycle Programs · AI Enablement</div>
-    <p class="thesis">Scaled customer success is a <span class="em">behavior problem before it's a tooling problem</span>.</p>
     <div class="contact">
       <span>Charlotte, NC</span>
       <a href="tel:+18595366889">(859) 536-6889</a>
@@ -354,21 +391,13 @@
     </div>
   </header>
 
-  <!-- METRIC LEDGER -->
-  <section class="ledger reveal" aria-label="Key results">
-    <div class="stat"><div class="num">50+</div><div class="lab">CSM organization<br>supported</div></div>
-    <div class="stat"><div class="num">&lt;10%</div><div class="lab">Accounts needing a CSM ·<br>pooled self-service coverage</div></div>
-    <div class="stat"><div class="num">13%</div><div class="lab">Email click to registration ·<br>new-user office hours</div></div>
-    <div class="stat"><div class="num">7 of 16</div><div class="lab">Production Journey<br>Orchestrator programs, built</div></div>
-  </section>
-
   <!-- LAYOUT -->
   <div class="layout reveal">
 
     <!-- MAIN -->
     <main class="main">
       <div class="eyebrow">Profile</div>
-      <p class="summary">Customer success operations practitioner specializing in digital-led and scaled CS programs, lifecycle automation, CSM-facing reporting, and the AI and knowledge systems a 50+ CSM organization runs on. Four years before that building lifecycle and engagement programs at Recorded Future, a threat intelligence company. Gainsight NXT Level 2 certified, two consecutive terms on the Gainsight CS Ops Product Council, two-time Platinum Gainstar. Psychology degree underneath all of it — audience segmentation and behavioral design are the foundation.</p>
+      <p class="summary">Customer success operations practitioner specializing in digital-led and scaled CS programs, lifecycle automation, CSM-facing reporting, and the AI and knowledge systems a 50+ CSM organization runs on. Four and a half years in Gainsight, four of them on the client enablement team at Recorded Future, a threat intelligence company. Four email platforms before that, each learned on the job. Gainsight NXT Level 2 certified, two consecutive terms on the Gainsight CS Ops Product Council, two-time Platinum Gainstar. Psychology degree underneath all of it. Audience segmentation and behavioral design are the foundation, not a footnote.</p>
 
       <div class="block-gap"></div>
 
@@ -382,11 +411,11 @@
         <div class="job-sub">Remote</div>
         <ul class="bullets">
           <li>Own the CS intelligence and AI-enablement function for a <b>50+ CSM organization</b>: Journey Orchestrator architecture, the AI workflows the team runs on, and the knowledge systems underneath both. Partner with Salesforce administration and BI on the upstream data layer.</li>
-          <li>Built <b>7 of the 16</b> Journey Orchestrator programs running in production, mostly lifecycle, and own triage when one stops firing. Onboarding and adoption programs drive new-user office hours, converting at roughly <b>13%</b> from email click to registration.</li>
-          <li>Retired a business-review prep prompt I&#39;d shipped to the <b>Gainsight Copilot</b> library — the output was inconsistent. Orchestrated the replacement with our <b>BI and data teams</b>: a <b>self-service Domo dashboard</b> where a CSM enters an account number and gets usage data beside talking points from a script I own. Prep dropped from an hour-plus to <b>15–30 minutes</b>.</li>
-          <li>Built the Journey Orchestrator program routing <b>lower-priority accounts to automated self-service guidance</b> instead of a CSM touchpoint — several hundred accounts resolving issues like outdated devices and incomplete setup forms on their own, or requesting help when they need it. <b>Under 10% require a CSM</b>, freeing capacity without adding headcount.</li>
-          <li>Designed the <b>weekly CS Ops reporting workflow</b>, replacing a manual status email. <b>Microsoft Copilot</b> prompts normalize the team&#39;s Jira and Loop entries into a fixed schema — wins, blockers, on-track status, program metrics, roadmap — then render an HTML infographic. Prep dropped from <b>half a day to 15–20 minutes</b>, and it feeds director-level reporting.</li>
-          <li>Pitched Notion as the CS Ops knowledge system and lost. Reworked the plan around an internal <b>SharePoint site</b> — lists, Copilot agents, and the related assets the team already works in — built on licenses the org already holds. No net-new vendor, no additional security review, no per-seat AI spend.</li>
+          <li>Built <b>7 of the 16</b> Journey Orchestrator programs running in production, mostly lifecycle, and own triage when one stops firing. Onboarding and adoption programs drive registration for new-user office hours.</li>
+          <li>Retired a business-review prep prompt I&#39;d shipped to the <b>Gainsight Copilot</b> library. Formatting varied run to run, talking points dropped out, and CSMs were re-prompting to get a complete script. It was making their job harder. Rebuilt it with our <b>BI and data teams</b> as a <b>self-service Domo dashboard</b>, moving the AI work to <b>when the script is designed rather than when it runs</b>. A CSM enters an account and gets the same complete output every time. Prep dropped from an hour-plus to <b>15–30 minutes</b>.</li>
+          <li>Built the <b>standing coverage model</b> that gives <b>P2 and P3 accounts a self-service path</b> instead of a CSM touchpoint. Several hundred accounts now handle replacement terminal orders and compliance requirements on their own, with a request-a-CSM option in every send. <b>Under 10% ask for one</b>, freeing capacity without new headcount. Shipped as a project, designed to repeat, running as ongoing coverage since.</li>
+          <li>Designed the <b>weekly CS Ops reporting workflow</b>, replacing a manual status email. <b>Microsoft Copilot</b> prompts normalize the team&#39;s Jira and Loop entries into a fixed schema (wins, blockers, on-track status, program metrics, roadmap), then render an HTML infographic. Prep dropped from <b>half a day to 15–20 minutes</b>, and it feeds director-level reporting.</li>
+          <li>Pitched Notion as the CS Ops knowledge system and lost. Stood the system up on <b>SharePoint</b> instead, using licenses the org already held: a governed document library holding only approved current files, metadata tagging and filtered views throughout, and a centralized SOP list. A <b>Copilot agent</b> sits on top, so a CSM asking how to run a license transfer gets the SOP, the enablement recording, and the infographic together. No net-new vendor, no additional security review, no per-seat AI spend.</li>
         </ul>
       </div>
 
@@ -395,14 +424,15 @@
           <div class="job-title">Senior Email Operations Specialist <span class="job-org">· Recorded Future</span></div>
           <div class="job-date">JAN 2022 — JAN 2026</div>
         </div>
-        <div class="job-sub">Threat Intelligence / Cybersecurity · Remote · Promoted from Email Campaign Specialist, Nov 2024</div>
+        <div class="job-sub">Client Enablement · Threat Intelligence / Cybersecurity · Remote · Promoted from Email Campaign Specialist, Nov 2024</div>
         <ul class="bullets">
-          <li>Migrated legacy batch-and-blast email into behavior-triggered <b>Journey Orchestrator</b> programs running on real-time data. New-user activation reached a <b>47% click-to-open rate</b> against a ~20% industry baseline; regional segmentation hit <b>67% CTOR</b>, roughly 3x the global average.</li>
-          <li>Re-architected webinar link and registration flows, driving a <b>300% increase</b> in registration rates.</li>
-          <li>Ran a <b>monthly check-in program on behalf of the CSM team</b> — scaled sends that landed as personal outreach from each CSM, with customers replying directly to their rep. Partnered with CSMs on onboarding and feature-announcement campaigns, tuning content and cadence to what they were hearing from accounts.</li>
-          <li>Ran structured <b>A/B testing</b> on message tone and send cadence — friendly versus formal copy, and 3-day versus 7-day send delays — retiring the underperformer after each test window. Results drove the move to the shorter delay and shaped the B2H approach I still build with.</li>
+          <li>Built the lifecycle and engagement programs that <b>customer success, onboarding, training, product, and support</b> ran on, working from inside the client enablement team. Partnered with marketing on shared audiences and channel ownership.</li>
+          <li>Migrated legacy batch-and-blast email into behavior-triggered <b>Journey Orchestrator</b> programs running on real-time data. New-user activation reached a <b>47% click-to-open rate</b> against a ~20% industry baseline; regional segmentation <b>peaked at 67% CTOR</b>, roughly 3x the global average. Re-architected webinar link and registration flows, <b>tripling registrations</b>.</li>
+          <li>Rolled out <b>Gainsight&#39;s Slack AI agent to the CSM team</b>, replacing a notification-only app. Piloted with a group under ten before releasing to the full team. Access inherited each rep&#39;s Salesforce permissions, so a CSM saw only their own book and a manager saw what rolled up to them. Clearing <b>legal and security</b> meant working with Gainsight&#39;s product team to confirm a wildcard operator that confined the agent to DMs and kept it out of every public and private channel. That detail was added to their <b>public FAQ</b>.</li>
+          <li>Built the <b>210-day pre-renewal program</b> that convened the CSM, account executive, renewal rep, and executive sponsor well ahead of the renewal date. The point was coordination: give the renewal team a full account picture early enough to act on it.</li>
+          <li>Ran a <b>monthly check-in program on behalf of the CSM team</b>. Scaled sends landed as personal outreach from each CSM, and customers replied directly to their rep. Partnered with CSMs on onboarding and feature-announcement campaigns, tuning content and cadence to what they were hearing from accounts.</li>
+          <li>Ran structured <b>A/B testing</b> on message tone and send cadence: friendly versus formal copy, 3-day versus 7-day send delays, retiring the underperformer after each test window. Results drove the move to the shorter delay and shaped the B2H approach I still build with.</li>
           <li>Created Gemini agentic workflows ("Gems") for task orchestration, brand-aligned copywriting, and technical link extraction, before AI tooling was part of the team's remit.</li>
-          <li>Shepherded software through a cybersecurity company's legal and security review. When a vendor's documentation came up short, worked with their product team until their public FAQ carried the detail our security reviewers needed.</li>
         </ul>
       </div>
 
@@ -412,7 +442,7 @@
         <div class="erow">
           <div class="etitle">Email Marketing Specialist <span class="eorg">· Rugs.com (Unique USA Inc)</span></div>
           <div class="edate">2021</div>
-          <div class="edesc">14+ campaigns weekly across audiences up to 1.9M, managing variants for a 1.1M+ subscriber list; executed IP-warming through CRM migrations.</div>
+          <div class="edesc">14+ campaigns weekly across audiences up to 1.9M, managing variants for a 1.1M+ subscriber list. Migrated the email stack Listrak → Braze → Klaviyo inside a single year, executing IP warming through each cutover.</div>
         </div>
         <div class="erow">
           <div class="etitle">Change Communications Specialist <span class="eorg">· Wells Fargo</span></div>
@@ -420,9 +450,9 @@
           <div class="edesc">Business Initiatives Consultant II. Drove enterprise change communications across large-scale business initiatives.</div>
         </div>
         <div class="erow">
-          <div class="etitle">Email Marketing Specialist <span class="eorg">· Quest Oracle Community</span></div>
+          <div class="etitle">Manager, Marketing <span class="eorg">· Quest Oracle Community</span></div>
           <div class="edate">2017 — 2019</div>
-          <div class="edesc">Built 20–30 technical and continuing-education email programs monthly for a 65K+ member community reaching C-level and end-user audiences.</div>
+          <div class="edesc">As the internal Eloqua expert, built 20–30 technical and continuing-education email programs monthly for a 65K+ member community reaching C-level and end-user audiences. Segmented the contact database and planned campaigns and canvases with third-party Eloqua consultants.</div>
         </div>
         <div class="erow">
           <div class="etitle">Communications &amp; IT / Media <span class="eorg">· Silver Springs Stud / Margaux Farm</span></div>
@@ -441,23 +471,27 @@
           <div class="skill-val">Digital-led and scaled CX journeys · lifecycle campaign design and audience segmentation · tech-touch and pooled coverage models · B2H ("business-to-human") communication design · message and cadence testing · CSM enablement · change management</div>
         </div>
         <div class="skill-group">
+          <div class="skill-key">Gainsight</div>
+          <div class="skill-val">NXT Level 2 certified. <b>Gainsight CS</b>: Journey Orchestrator (Dynamic &amp; Advanced JOs, audience filters) · Data Designer · Health Scores · CTAs &amp; Playbooks · Gainsight Copilot · Surveys · Reports &amp; Dashboards. <b>Gainsight CC</b> (Customer Communities): community integrated with CS lifecycle programs.</div>
+        </div>
+        <div class="skill-group">
           <div class="skill-key">AI Enablement</div>
-          <div class="skill-val">Gemini (custom Gems, Deep Research) · Gemini Notebook (formerly NotebookLM) · Claude (Projects, reusable Skills) · Microsoft Copilot Premium (grounding, memory) · Granola — prompt design, agent and skill architecture, design-time vs. runtime thinking</div>
+          <div class="skill-val">Design-time vs. runtime architecture (build the logic once, let a deterministic system execute it) · human review as a design constraint, not a courtesy · ops-mediated tool access and permissioning models · grounding generation in an approved source of truth · model selection and cross-model chaining by task and cost · context, prompt, and skill architecture · maintainability as a build requirement</div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-key">AI Tooling</div>
+          <div class="skill-val">Claude (Projects, Skills, scheduled tasks, MCP connectors) · Microsoft and SharePoint Copilot, Copilot Studio · Gemini (custom Gems, Deep Research) · Gemini Notebook (formerly NotebookLM) · Granola · Perplexity</div>
         </div>
 
         <div class="skill-divider"></div>
         <div class="fluent-label">Also fluent in</div>
         <div class="skill-group">
-          <div class="skill-key">Gainsight</div>
-          <div class="skill-val">NXT Level 2 certified. Journey Orchestrator (Dynamic &amp; Advanced JOs, audience filters) · Data Designer · Health Scores · CTAs &amp; Playbooks · Gainsight Copilot · Surveys · Reports &amp; Dashboards</div>
-        </div>
-        <div class="skill-group">
           <div class="skill-key">Knowledge &amp; Governance</div>
-          <div class="skill-val">Knowledge systems (SharePoint, Microsoft Loop, Notion) — database and schema design, wikis, forms, dashboards, infographics, SOPs · documentation and naming conventions · software evaluation through legal and security review · project planning</div>
+          <div class="skill-val">Knowledge systems (SharePoint, Microsoft Loop, Notion): database and schema design, wikis, forms, dashboards, infographics, SOPs · documentation and naming conventions · software evaluation through legal and security review · project planning</div>
         </div>
         <div class="skill-group">
           <div class="skill-key">Platforms &amp; Tools</div>
-          <div class="skill-val">Gainsight · Salesforce · Domo · Notion · Google Workspace · Microsoft 365 · Slack · Jira · Atlassian Rovo · Confluence · Smartsheet · Airtable · Adobe (Photoshop, Illustrator) · HTML</div>
+          <div class="skill-val">Gainsight · Salesforce · Domo · Notion · SharePoint · Google Workspace · Microsoft 365 · Slack · Jira · Atlassian Rovo · Confluence · Smartsheet · Airtable · Adobe (Photoshop, Illustrator) · HTML<br><br>Email platforms: Eloqua · Listrak · Braze · Klaviyo</div>
         </div>
       </div>
 
